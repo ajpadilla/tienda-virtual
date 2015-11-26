@@ -1,0 +1,206 @@
+body
+{
+	color: #4d4d4d;
+	font-family: Roboto, sans-serif;
+	font-size: 16px;
+	font-weight: 300;
+	margin: 0 auto;
+}
+
+#contenedor-encabezado
+{
+	display: block;
+	position: relative;
+}
+
+#contenedor-navegador
+{
+	background-color: #ee8416;
+	border-bottom: 1px solid white;
+	display: block;
+	height: 70px;
+	position: relative;
+}
+
+
+#contenedor-menu
+{
+	display: block;
+	border: 1px solid blue;
+	position: relative;
+}
+
+.contenedor
+{
+	box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    moz-box-sizing: border-box;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1250px;
+	border: 1px solid red;
+}
+
+#logo
+{
+	background-color: #fff;
+	background-image: url(/site_media/img/logo.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 150px 200px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	box-shadow: 0 5px 10px rgba(153,153,153,0.2);
+	-webkit-box-shadow: 0 5px 10px rgba(153,153,153,0.2);
+	-moz-box-shadow: 0 5px 10px rgba(153,153,153,0.2);
+	display: inline-block;
+	height: 165px;
+	left: 50%;
+	margin-left: -550px;
+	overflow: hidden;
+	position: absolute;
+	transform: translate(-50%,0);
+    -webkit-transform: translate(-50%,0);
+    -moz-transform: translate(-50%,0);
+	text-indent: 900px;
+	top: 3px;
+	width: 165px;
+}
+
+.grilla_buscador,
+.grilla_selector,
+.grilla_buscar,
+.grilla_busqueda_avanzada
+{
+	display: inline-block;
+}
+
+.push_buscador
+{
+	position: relative;
+	left: 160px;
+}
+
+.push_selector
+{
+	left: 157px;
+}
+
+.push_buscar
+{
+	left: 153px;
+}
+
+.push_busqueda_avanzada
+{
+	left: 151px;
+}
+
+.grilla_buscador
+{
+	/*border: 1px solid yellow;*/
+	margin: 0;
+	padding: 0;
+	position: relative;
+	width: 580px;
+}
+
+.grilla_selector
+{
+	margin: 0;
+	padding: 0;
+	position: relative;
+	width: 170px;
+}
+
+.grilla_buscar
+{
+	margin: 0;
+	padding: 0;
+	position: relative;
+	width: 90px;
+}
+
+.grilla_busqueda_avanzada
+{
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+#busqueda
+{
+	color: #4d4d4d;
+	background: url(/site_media/img/lupa.png) no-repeat 550px center #fff;
+	border: none;
+	box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    moz-box-sizing: border-box;
+	display: block;
+	font-size: 14px;
+	font-weight: 300;
+	margin-top: 30px;
+	outline: none;
+	padding: 10px;
+	position: relative;
+	width: 100%;
+}
+
+#categorias
+{
+	border: none;
+	box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    moz-box-sizing: border-box;
+    color: #4d4d4d;
+    display: block;
+    font-size: 14px;
+	font-weight: 300;
+	margin-top: 30px;
+	outline: none;
+    padding: 9px 10px;
+	position: relative;
+	width: 100%;
+}
+
+.boton-buscar
+{
+	background-color: #6BCDBF;
+}
+
+.boton-buscar
+{
+	border:none;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 10px 15px;
+	position: relative;
+	text-decoration: none;
+	text-transform: uppercase;
+	-webkit-transition: box-shadow 0.5s ease;
+    -moz-transition: box-shadow 0.5s ease;
+    transition: box-shadow 0.5s ease;
+}
+
+.grilla_busqueda_avanzada > a 
+{
+	color: #727272;
+	display: block;
+	font-size: 12px;
+	line-height: 40px;
+	padding: 0 10px;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.grilla_busqueda_avanzada > a:hover
+{
+	color: white;
+}
