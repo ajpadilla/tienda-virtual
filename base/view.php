@@ -3,7 +3,7 @@
 
 	function get_template($html_template="get")
 	{
-		$file = '../site_media/html/'.$html_template.'.html';
+		$file = '../site_media/html/'.$html_template.'.php';
 		$template = file_get_contents($file);
 		return $template;
 	}
