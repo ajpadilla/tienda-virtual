@@ -30,8 +30,8 @@
 					<a href="#" class="icon-checkmark"></a>
 				</div>
 				<div class="grilla_accion push_accion">
-					<button class="boton-buscar">Sing up</button>
-					<button class="boton-buscar">Sing in</button>
+					<a href="/{VIEW_SET_USER}" class="boton-buscar">Sing up</a>
+					<a href="" class="boton-buscar">Sing in</a>
 				</div>
 			</div>
 		</div>
@@ -40,6 +40,8 @@
 		</div>
 		<a id="logo" href="/site_media/html/index_template.html">Logo</a>
 	</div>
-	<?php echo "string"; ?>
+	<div id="contenido">
+		{content}
+	</div>
 </body>
 </html>
