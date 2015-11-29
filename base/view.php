@@ -1,5 +1,9 @@
 <?php 
-	$diccionary = array();
+	$diccionary = array(
+		'sing' => array(
+			'VIEW_SET_USER' => MODULE_USER.VIEW_SET_USER.'/', 
+		)
+	);
 
 	function get_template($html_template="get")
 	{
@@ -12,7 +16,7 @@
 	{
 		foreach ($data as $key => $value)
 		{
-			$html = str_replace('{'.$key.'}', $value,$html);
+			$html = str_replace('{'.$key.'}', $value, $html);
 		}
 		return $html;
 	}
@@ -21,6 +25,8 @@
 	{
 		global $diccionary;
 		$html = get_template('index_template');
+		$html = str_replace('{content}', get_template($view), $html);
+		$html = render_dinamic_data($html, $diccionary['sing']);
 		print $html;
 	}
 ?>
