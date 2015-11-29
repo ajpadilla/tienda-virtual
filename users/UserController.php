@@ -1,1 +1,3 @@
-<?php echo "Controller para usuarios"; ?>
+<?php 
+	require_once ('../base/BaseController.php');
+?>
