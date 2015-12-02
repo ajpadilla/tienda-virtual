@@ -1,8 +1,9 @@
 <?php 
 	
 	$routes = array(
-		array("url" => "/^\/users\/?$/", "controller" => "users", "view" => ""),
-
+		array("url" => "/^\/$/", "controller" => "", "view" => ""),
+		array("url" => "/^\/users\/new\/?$/", "controller" => "users", "view" => "new"),
+		array("url" => "/^\/users\/create\/?$/", "controller" => "users", "view" => "create"),
 	);
 
 	define("HOST", "localhost");
