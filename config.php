@@ -1,6 +1,9 @@
 <?php 
 	
-	$routes = array();
+	$routes = array(
+		array("url" => "/^\/users\/?$/", "controller" => "users", "view" => ""),
+
+	);
 
 	define("HOST", "localhost");
 	define("USERNAME", "root");
@@ -10,7 +13,7 @@
 	define("WEBSITE", "http://localhost/");
 	define("DS", "/");
 	define("SERVER_ROOT",$_SERVER["DOCUMENT_ROOT"]);
-	define("CONTROLLERS_PATH",SERVER_ROOT.DS.APP_ROOT.DS."controllers".DS);
-	define("MODELS_PATH",SERVER_ROOT.DS.APP_ROOT.DS."models".DS);
-	define("VIEWS_PATH",SERVER_ROOT.DS.APP_ROOT.DS."views".DS);
+	define("CONTROLLERS_PATH",APP_ROOT."controllers".DS);
+	define("MODELS_PATH",APP_ROOT."models".DS);
+	define("VIEWS_PATH",APP_ROOT."views".DS);
 ?>
