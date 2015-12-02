@@ -4,19 +4,19 @@
 	function routing($routes)
 	{
 		$url = $_SERVER['REQUEST_URI'];
-		//echo $url;
-		//$url = str_replace("/tienda-virtual.local/","",$url);
 		$url = str_replace("?".$_SERVER['QUERY_STRING'], "", $url);
+		$params = params();
+
 		foreach ($routes as $route) 
 		{
 			if ($num_routes = preg_match($route["url"],$url,$matches) > 0)
 			{
-				//$params = array_merge($matches,$params);
+				$params = array_merge($matches,$params);
 				break;
 			}
 		}
 
-		//print_r($matches)."<br/>";
+		print_r($params)."<br/>";
 
 		if ($num_routes == 0) 
 		{
@@ -38,5 +38,50 @@
 
 	}
 
+	function params()
+	{
+		$params = array();
+		
+		if(!empty($_POST))
+		{
+			if(get_magic_quotes_gpc() == 1)
+			{
+				$params = array_merge($params,stripslashes_array($_POST));
+			}
+			else
+			{
+				$params = array_merge($params,$_POST);
+			}
+		}
+		
+		if(!empty($_GET))
+		{
+			if(get_magic_quotes_gpc()==1)
+			{
+				$params = array_merge($params,stripslashes_array($_GET));
+			}
+			else
+			{
+				$params = array_merge($params,$_GET);
+			}
+		}
+		
+		return $params;
+	}
+	
+
+	function stripslashes_array($value)
+	{
+		if(is_array($value))
+		{
+			$value = array_map("stripslashes_array",$value);
+		}
+		else
+		{
+			$value = stripslashes($value);
+		}
+		
+		return $value;
+	}
 	routing($routes);
 ?>
