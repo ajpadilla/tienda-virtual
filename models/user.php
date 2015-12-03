@@ -1,6 +1,6 @@
 <?php 
 	include("db_abstract_model.php");
-
+	include("person.php");
 	/**
 	* 
 	*/
@@ -10,6 +10,7 @@
 		public $username;
 		public $password;
 		public $email;
+		public $person;
 
 		function __construct()
 		{
@@ -17,6 +18,7 @@
 			$this->username = "";
 			$this->password = "";
 			$this->email = "";
+			$this->person = new Person();
 		}
 
 	    function __destruct() 
@@ -28,8 +30,7 @@
 	    {
 	    	if ($user_email != "") 
 	    	{
-	    		$this->query = "SELECT * FROM users JOIN persons 
-	    		ON users.id = persons.user_id
+	    		$this->query = "SELECT * FROM users 
 	    		WHERE users.email = '{$user_email}'";
 	    		$this->get_results_from_query();
 	    	}
@@ -40,7 +41,7 @@
 				{
 					$this->$property = $value;
 				}
-				return $this->rows;
+				$this->person->get($this->id);
 			}
 	    }
 
@@ -48,7 +49,28 @@
 	    {
 	    	if (array_key_exists('email', $user_data) && array_key_exists('username', $user_data))
 	    	{
+	    		echo "Entro en la primera"."<br/>";
 	    		$this->get($user_data['email']);
+	    		if ($user_data["email"] != $this->email && $user_data["username"] != $this->username) 
+	    		{
+	    			echo "Entro en la segunda"."<br/>";
+	    			foreach ($user_data as $property => $value) 
+	    			{
+	    				if (property_exists($this, $property)) 
+	    				{
+	    					$$property = $value;
+	    					echo "Entro en la tercera"."<br/>";
+	    				}
+	    			}
+	    			$this->query = "INSERT INTO users
+	    			(username, password, email, create_at)
+	    			VALUES 
+	    			('{$username}','{$password}','{$email}', NOW())";
+	    			$this->execute_single_query();
+	    			$this->get($user_data['email']);
+	    			$user_data["user_id"] = $this->id;
+	    			$this->person->set($user_data);
+	    		}
 	    	}
 	    }
 
