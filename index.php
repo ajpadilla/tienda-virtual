@@ -10,7 +10,7 @@
 		echo $url.'<br/>';*/
 		$params = params();
 
-		//print_r($params)."<br/>";
+		print_r($params)."<br/>";
 
 		foreach ($routes as $route) 
 		{
