@@ -5,8 +5,8 @@
 	{
 		case 'create':
 			$user = new User();
-			$user->get("j@oja.la");
-			echo $user->email;
+			$user->set($params["post"]);
+			echo "Usuario agregado";
 			break;
 	}
 ?>
