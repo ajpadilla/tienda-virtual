@@ -4,7 +4,9 @@
 	switch ($route["view"]) 
 	{
 		case 'create':
-			echo "Agregando usuario";
+			$user = new User();
+			$user->get("j@oja.la");
+			echo $user->email;
 			break;
 	}
 ?>
