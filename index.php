@@ -4,8 +4,13 @@
 	function routing($routes)
 	{
 		$url = $_SERVER['REQUEST_URI'];
-		$url = str_replace("?".$_SERVER['QUERY_STRING'], "", $url);
+		/*echo $url.'<br/>';*/
+		$url = str_replace("?".$_SERVER['QUERY_STRING'],"",$url);
+		/*echo $_SERVER['QUERY_STRING'].'<br/>';
+		echo $url.'<br/>';*/
 		$params = params();
+
+		//print_r($params)."<br/>";
 
 		foreach ($routes as $route) 
 		{
@@ -16,7 +21,7 @@
 			}
 		}
 
-		print_r($params)."<br/>";
+		//print_r($params)."<br/>";
 
 		if ($num_routes == 0) 
 		{
@@ -38,18 +43,21 @@
 
 	}
 
+			
 	function params()
 	{
 		$params = array();
 		
 		if(!empty($_POST))
 		{
-			if(get_magic_quotes_gpc() == 1)
+			if(get_magic_quotes_gpc()==1)
 			{
+				//echo "1";
 				$params = array_merge($params,stripslashes_array($_POST));
 			}
 			else
 			{
+				//echo "2";
 				$params = array_merge($params,$_POST);
 			}
 		}
@@ -69,7 +77,6 @@
 		return $params;
 	}
 	
-
 	function stripslashes_array($value)
 	{
 		if(is_array($value))
@@ -83,5 +90,6 @@
 		
 		return $value;
 	}
+
 	routing($routes);
 ?>
