@@ -41,6 +41,12 @@
 		<a id="logo" href="/site_media/html/index_template.html">Logo</a>
 	</div>
 	<div id="contenedor-principal">
+	<?php if (isset($_SESSION["msg"]["success"])): ?>
+<span class="msg-success"><?php echo $_SESSION["msg"]["success"]; ?></span>
+<?php endif ?>
+<?php if (!empty($_SESSION["msg"]["warnings"])): ?>
+<span class="msg-success"><?php echo $_SESSION["msg"]["warnings"]; ?></span>
+<?php endif ?>
 	<?php if ($route["view"] != "" && file_exists(VIEWS_PATH.$route["controller"].DS.$route["view"].".php")): ?>
 		<?php include(VIEWS_PATH.$route["controller"].DS.$route["view"].".php"); ?>
 	<?php endif ?>
