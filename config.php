@@ -19,5 +19,6 @@
 	define("VIEWS_PATH",SERVER_ROOT.APP_ROOT."views".DS);
 
 	require("lib/model.php");
-
+	require("lib/controller.php");
+	require("lib/view.php");
 ?>
