@@ -13,6 +13,7 @@
 	    protected $rows = array();
 	    private $connection;
 	    public $message = 'Hecho';
+		public $validations;
 
 		# métodos abstractos para ABM de clases que hereden    
 	    abstract protected function get();
