@@ -19,6 +19,11 @@
 			$this->password = "";
 			$this->email = "";
 			$this->person = new Person();
+			$this->validations = array(
+				"username" => "/^[[:alnum:] [:space:] [:punct:]]{1,45}$/",
+				"password" => "/^[[:alnum:] [:space:] [:punct:]]{1,40}$/",
+				"email" => "/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/",
+			);
 		}
 
 	    function __destruct() 
