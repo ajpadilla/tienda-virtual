@@ -17,4 +17,7 @@
 	define("CONTROLLERS_PATH",SERVER_ROOT.APP_ROOT."controllers".DS);
 	define("MODELS_PATH",SERVER_ROOT.APP_ROOT."models".DS);
 	define("VIEWS_PATH",SERVER_ROOT.APP_ROOT."views".DS);
+
+	require("lib/model.php");
+
 ?>
