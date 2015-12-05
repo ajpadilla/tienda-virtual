@@ -7,7 +7,8 @@
 			$user = new User();
 			$invalid_fields = $user->search($params["post"]);
 			$errors = get_errors($user->validations, $params["post"]);
-			if (!$errors && !$invalid_fields["email"] && !$invalid_fields["username"]) 
+			$invalid_password = $user->valid_password($params["post"]["password"], $params["post"]["confirm_password"]);
+			if (!$errors && !$invalid_fields["email"] && !$invalid_fields["username"] && !$invalid_password["confirm_password"]) 
 			{
 				$user->set($params["post"]);
 				save_msg_success("Se ha agregado correctamente el nuevo usuario");
