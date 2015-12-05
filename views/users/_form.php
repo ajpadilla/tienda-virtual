@@ -41,17 +41,39 @@
 		{
 			echo error_msg($errors["password"],"Contraseña no valida");
 		}
+
+		if (isset($invalid_password["confirm_password"])) 
+		{
+			echo error_msg($invalid_password["confirm_password"],"No coincide el password");
+		}
 	?>
-	<label for="confirm_pass">Confirmar contraseña</label>
-	<input type="password" id="confirm_pass" name="post[confirm_pass]">
+	<label for="confirm_password">Confirmar contraseña</label>
+	<input type="password" id="confirm_password" name="post[confirm_password]">
+	<?php  
+		if (isset($errors)) 
+		{
+			echo error_msg($errors["confirm_password"],"Contraseña no valida");
+		}
+
+		if (isset($invalid_password["confirm_password"])) 
+		{
+			echo error_msg($invalid_password["confirm_password"],"No coincide el password");
+		}
+	?>
+
 	<label for="name">Nombre </label>
 	<input type="text" id="name" name="post[name]">
+
 	<label for="last_name">Apellido</label>
 	<input type="text" id="last_name" name="post[last_name]">
+
 	<label for="date_of_birth">Fecha de nacimiento</label>
 	<input type="text" id="date_of_birth" name="post[date_of_birth]">
+
 	<label for="phone">telefono</label>
 	<input type="text" id="phone" name="post[phone]">
+
 	<label for="address">Dirección</label>
 	<input type="text" id="address" name="post[address]">
+
 	<input type="submit" value="Crear">
