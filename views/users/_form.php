@@ -12,11 +12,36 @@
 		<option value="customer">Cliente</option>
 	</select>
 	<label for="email">Email</label>
-	<input type="text" id="email" name="post[email]">
+	<input type="text" id="email" name="post[email]" value="<?php echo isset($post)?$post['email']:""; ?>">
+	<?php  
+		if (isset($errors)) 
+		{
+			echo error_msg($errors["email"],"Dirección de correo no valida");
+		}
+
+		if(isset($invalid_fields)) {
+			echo error_msg($invalid_fields["email"],"El email ya se encuentra registrado");
+		}
+	?>
 	<label for="username">Nombre de usuario</label>
-	<input type="text" id="username" name="post[username]">
+	<input type="text" id="username" name="post[username]" value="<?php echo isset($post)?$post['username']:""; ?>">
+	<?php  
+		if (isset($errors)) 
+		{
+			echo error_msg($errors["username"],"Nombre de usuario no valido");
+		}
+		if(isset($invalid_fields)) {
+			echo error_msg($invalid_fields["username"],"El username ya se encuentra registrado");
+		}
+	?>
 	<label for="password">Contraseña</label>
-	<input type="password" id="password" name="post[password]">
+	<input type="password" id="password" name="post[password]" value="<?php echo isset($post)?$post['password']:""; ?>">
+	<?php  
+		if (isset($errors)) 
+		{
+			echo error_msg($errors["password"],"Contraseña no valida");
+		}
+	?>
 	<label for="confirm_pass">Confirmar contraseña</label>
 	<input type="password" id="confirm_pass" name="post[confirm_pass]">
 	<label for="name">Nombre </label>
