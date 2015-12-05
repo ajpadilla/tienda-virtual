@@ -1,4 +1,7 @@
 <?php
+	
+	session_start();
+
 	include("config.php");
 
 	function routing($routes)
@@ -10,7 +13,7 @@
 		echo $url.'<br/>';*/
 		$params = params();
 
-		print_r($params)."<br/>";
+		//print_r($params)."<br/>";
 
 		foreach ($routes as $route) 
 		{
@@ -40,7 +43,8 @@
 		{
 			include(VIEWS_PATH."layouts".DS."default.php");
 		}
-
+		$_SESSION["msg"]["warnings"] = "";
+		$_SESSION["msg"]["success"] = "";
 	}
 
 			
