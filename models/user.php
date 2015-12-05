@@ -22,6 +22,7 @@
 			$this->validations = array(
 				"username" => "/^[[:alnum:] [:space:] [:punct:]]{1,45}$/",
 				"password" => "/^[[:alnum:] [:space:] [:punct:]]{1,40}$/",
+				"confirm_password" => "/^[[:alnum:] [:space:] [:punct:]]{1,40}$/", 
 				"email" => "/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/",
 			);
 		}
@@ -116,6 +117,20 @@
 	    	}
 
 	    	return $invalid_fields;
+	    }
+
+	    public function valid_password($password='', $confirm_password)
+	    {
+	    	$invalid_password = array('confirm_password' => false);
+	    	if ($password != "" && $confirm_password != "")
+	    	{
+	    		if ($password != $confirm_password) 
+		    	{
+		    		$invalid_password["confirm_password"] = true;
+		    	}
+	    	}
+	    	
+	    	return $invalid_password;
 	    }
 
 	}
