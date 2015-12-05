@@ -52,13 +52,14 @@
 
 	    public function set($user_data = array())
 	    {
+
 	    	if (array_key_exists('email', $user_data) && array_key_exists('username', $user_data))
 	    	{
-	    		echo "Entro en la primera"."<br/>";
+	    		//echo "Entro en la primera"."<br/>";
 	    		$this->get($user_data['email']);
 	    		if ($user_data["email"] != $this->email && $user_data["username"] != $this->username) 
 	    		{
-	    			echo "Entro en la segunda"."<br/>";
+	    			//echo "Entro en la segunda"."<br/>";
 	    			foreach ($user_data as $property => $value) 
 	    			{
 	    				if (property_exists($this, $property)) 
@@ -77,6 +78,7 @@
 	    			$this->person->set($user_data);
 	    		}
 	    	}
+	    	return $invalid_fields;
 	    }
 
 	    public  function edit($user_data = array())
@@ -86,6 +88,34 @@
 	    public  function delete($user_email = '')
 	    {
 	    	#code
+	    }
+
+	    public function search($input = array())
+	    {
+	    	$invalid_fields = array("email" => false, "username" => false);
+
+	    	$this->get($input["email"]);
+	    	if (!empty($this->email)) 
+	    	{
+	    		$invalid_fields["email"] = true;
+	    		if (!empty($this->username) && $input["username"] != "") 
+	    		{
+	    			if ($this->username == $input["username"]) 
+	    			{
+	    				$invalid_fields["username"] = true;
+	    			}
+	    			else
+	    			{
+	    				$invalid_fields["username"] = false;
+	    			}
+	    		}
+	    	}
+	    	else
+	    	{
+	    		$invalid_fields["email"] = false;
+	    	}
+
+	    	return $invalid_fields;
 	    }
 
 	}
