@@ -7,9 +7,9 @@
 	<br/>
 	<label for="roles">Rol</label>
 	<select name="post[roles]" id="roles">
-		<option value="admin">Administrador</option>
-		<option value="salesman">Vendedor</option>
-		<option value="customer">Cliente</option>
+		<option value="1">Administrador</option>
+		<option value="2">Vendedor</option>
+		<option value="3">Cliente</option>
 	</select>
 	<label for="email">Email</label>
 	<input type="text" id="email" name="post[email]" value="<?php echo isset($post)?$post['email']:""; ?>">
