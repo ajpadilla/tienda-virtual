@@ -2,6 +2,7 @@
 	function redirect_to($address)
 	{
 		header("Location:".APP_ROOT.$address);
+		exit();
 	}
 
 	function save_msg_warnings($msg)

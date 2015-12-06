@@ -54,5 +54,12 @@
 	    	#code
 	    }
 
+	    public function asignedRole($user_id, $role_id)
+	    {
+	    	$this->query = "INSERT INTO users_roles (user_id, role_id, create_at) 
+	    	VALUES ($user_id,$role_id,NOW())";
+	    	$this->execute_single_query();
+	    }
+
 	}
 ?>
