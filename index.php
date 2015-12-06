@@ -3,7 +3,6 @@
 	session_start();
 
 	include("config.php");
-
 	function routing($routes)
 	{
 		$url = $_SERVER['REQUEST_URI'];
@@ -13,7 +12,7 @@
 		echo $url.'<br/>';*/
 		$params = params();
 
-		//print_r($params)."<br/>";
+		print_r($params)."<br/>";
 
 		foreach ($routes as $route) 
 		{
@@ -24,7 +23,7 @@
 			}
 		}
 
-		//print_r($params)."<br/>";
+		print_r($params)."<br/>";
 
 		if ($num_routes == 0) 
 		{
@@ -45,6 +44,8 @@
 		}
 		$_SESSION["msg"]["warnings"] = "";
 		$_SESSION["msg"]["success"] = "";
+		
+
 	}
 
 			
