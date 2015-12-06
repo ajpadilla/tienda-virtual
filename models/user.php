@@ -1,6 +1,7 @@
 <?php 
 	include("db_abstract_model.php");
 	include("person.php");
+	include("role.php");
 	/**
 	* 
 	*/
@@ -11,6 +12,7 @@
 		public $password;
 		public $email;
 		public $person;
+		public $role;
 
 		function __construct()
 		{
@@ -19,6 +21,7 @@
 			$this->password = "";
 			$this->email = "";
 			$this->person = new Person();
+			$this->role = new Role();
 			$this->validations = array(
 				"username" => "/^[[:alnum:] [:space:] [:punct:]]{1,45}$/",
 				"password" => "/^[[:alnum:] [:space:] [:punct:]]{1,40}$/",
@@ -77,9 +80,9 @@
 	    			$this->get($user_data['email']);
 	    			$user_data["user_id"] = $this->id;
 	    			$this->person->set($user_data);
+	    			$this->role->asignedRole($this->id,$user_data["roles"]);
 	    		}
 	    	}
-	    	return $invalid_fields;
 	    }
 
 	    public  function edit($user_data = array())
