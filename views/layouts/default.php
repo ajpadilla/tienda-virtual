@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="">
 	<title>Tienda Virtual</title>
 	<link rel="shortcut icon" size="64x64" href="/public/images/shopping-basket-icon.png" />
-	<link rel="stylesheet" type="text/css" href="/public/css/styles.css">
+	<!--<link rel="stylesheet" type="text/css" href="/public/css/styles.css">-->
 </head>
 <body>
 	<div id="contenedor-encabezado">
@@ -41,7 +41,7 @@
 		<a id="logo" href="/site_media/html/index_template.html">Logo</a>
 	</div>
 	<div id="contenedor-principal">
-	<?php if (!empty($_SESSION["msg"]["success"])): ?>
+	<?php if (isset($_SESSION["msg"]["success"])): ?>
 	<span class="msg-success"><?php echo $_SESSION["msg"]["success"]; ?></span>
 	<?php endif ?>
 	<?php if (!empty($_SESSION["msg"]["warnings"])): ?>
