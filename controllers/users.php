@@ -6,9 +6,10 @@
 		case 'create':
 			$user = new User();
 			$invalid_fields = $user->search($params["post"]);
-			$errors = get_errors($user->validations, $params["post"]);
+			$errors_user= get_errors($user->validations, $params["post"]);
+			$errors_person = get_errors($user->person->validations, $params["post"]);
 			$invalid_password = $user->valid_password($params["post"]["password"], $params["post"]["confirm_password"]);
-			if (!$errors && !$invalid_fields["email"] && !$invalid_fields["username"] && !$invalid_password["confirm_password"]) 
+			if (!$errors_user && !$errors_person && !$invalid_fields["email"] && !$invalid_fields["username"] && !$invalid_password["confirm_password"]) 
 			{
 
 			 	$user->set($params["post"]);
