@@ -21,6 +21,13 @@
 			$this->date_of_birth = "";
 			$this->phone = "";
 			$this->address = "";
+			$this->validations = array(
+				"name" => "/^[[:alnum:] [:space:] [:punct:]]{1,45}$/",
+				"last_name" => "/^[[:alnum:] [:space:] [:punct:]]{1,45}$/",
+				"date_of_birth" => "/^\d{4}[-]\d{1,2}[-]\d{1,2}$/", 
+				"phone" => "/^[[:alnum:] [:space:] [:punct:]]{1,45}$/",
+				"address" => "/^[[:alnum:] [:space:] [:punct:]]{1,255}$/"
+			);
 		}
 
 		function __destruct() 
