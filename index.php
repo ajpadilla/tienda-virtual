@@ -6,16 +6,17 @@
 	function routing($routes)
 	{
 		$url = $_SERVER['REQUEST_URI'];
-		/*echo $url.'<br/>';*/
+		//echo $url.'<br/>';
 		$url = str_replace("?".$_SERVER['QUERY_STRING'],"",$url);
 		/*echo $_SERVER['QUERY_STRING'].'<br/>';
 		echo $url.'<br/>';*/
 		$params = params();
 
-		print_r($params)."<br/>";
+		//print_r($params)."<br/>";
 
 		foreach ($routes as $route) 
 		{
+			//echo $route["url"]."<br/>";
 			if ($num_routes = preg_match($route["url"],$url,$matches) > 0)
 			{
 				$params = array_merge($matches,$params);
