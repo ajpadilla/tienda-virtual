@@ -14,6 +14,7 @@
 	    private $connection;
 	    public $message = 'Hecho';
 		public $validations;
+		public $result;
 
 		# métodos abstractos para ABM de clases que hereden    
 	    abstract protected function get();
@@ -34,7 +35,7 @@
 	    protected function execute_single_query()
 	    {
 	    	$this->open_connection();
-	    	$this->connection->query($this->query);
+	    	$this->result = $this->connection->query($this->query);
 	    	$this->close_connection();
 	    }
 
