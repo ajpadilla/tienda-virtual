@@ -6,11 +6,6 @@
 	<br/>
 	<br/>
 	<br/>
-	<?php if (isset($errors)) 
-		{
-			var_dump($errors);
-		} 
-	?>
 	<label for="roles">Rol</label>
 	<select name="post[roles]" id="roles">
 		<option value="1">Vendedor</option>
