@@ -1,4 +1,10 @@
-<form action="<?php echo APP_ROOT; ?>users/create" method="post">
+<form action="<?php echo APP_ROOT; ?>sessions/create" method="post">
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
 <fieldset>
     <legend>Por favor inicia sesión</legend>
     <div>
