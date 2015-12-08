@@ -69,7 +69,6 @@
 	    				if (property_exists($this, $property)) 
 	    				{
 	    					$$property = $value;
-	    					echo "Entro en la tercera"."<br/>";
 	    				}
 	    			}
 	    			$this->query = "INSERT INTO users
