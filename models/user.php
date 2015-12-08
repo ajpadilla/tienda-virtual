@@ -56,32 +56,60 @@
 
 	    public function set($user_data = array())
 	    {
-
-	    	if (array_key_exists('email', $user_data) && array_key_exists('username', $user_data))
+	    	$total = $this->selectAll();
+	    	if ($total <= 0) 
 	    	{
-	    		//echo "Entro en la primera"."<br/>";
-	    		$this->get($user_data['email']);
-	    		if ($user_data["email"] != $this->email && $user_data["username"] != $this->username) 
+	    		if (array_key_exists('email', $user_data) && array_key_exists('username', $user_data))
 	    		{
-	    			//echo "Entro en la segunda"."<br/>";
-	    			foreach ($user_data as $property => $value) 
-	    			{
-	    				if (property_exists($this, $property)) 
-	    				{
-	    					$$property = $value;
-	    				}
-	    			}
-	    			$this->query = "INSERT INTO users
-	    			(username, password, email, create_at)
-	    			VALUES 
-	    			('{$username}','{$password}','{$email}', NOW())";
-	    			$this->execute_single_query();
 	    			$this->get($user_data['email']);
-	    			$user_data["user_id"] = $this->id;
-	    			$this->person->set($user_data);
-	    			$this->role->asignedRole($this->id,$user_data["roles"]);
+	    			if ($user_data["email"] != $this->email && $user_data["username"] != $this->username) 
+	    			{
+	    				$this->setAttributes($user_data);
+	    				$this->get($user_data['email']);
+	    				$user_data["user_id"] = $this->id;
+	    				$this->person->set($user_data);
+	    				$this->role->asignedRole($this->id,1);
+	    			}
 	    		}
 	    	}
+	    	else
+	    	{
+	    		if (array_key_exists('email', $user_data) && array_key_exists('username', $user_data))
+	    		{
+	    			$this->get($user_data['email']);
+	    			if ($user_data["email"] != $this->email && $user_data["username"] != $this->username) 
+	    			{
+	    				$this->setAttributes($user_data);
+	    				$this->get($user_data['email']);
+	    				$user_data["user_id"] = $this->id;
+	    				$this->person->set($user_data);
+	    				$this->role->asignedRole($this->id,$user_data["roles"]);
+	    			}
+	    		}	
+	    	}
+	    }
+
+	    public function setAttributes($user_data = array())
+	    {
+	    	foreach ($user_data as $property => $value) 
+	    	{
+	    		if (property_exists($this, $property)) 
+	    		{
+	    			$$property = $value;
+	    		}
+	    	}
+	    	$this->query = "INSERT INTO users
+	    	(username, password, email, create_at)
+	    	VALUES 
+	    	('{$username}','{$password}','{$email}', NOW())";
+	    	$this->execute_single_query();
+	    }
+
+	    public function selectAll()
+	    {
+	    	$this->query = "SELECT * FROM users";
+	    	$this->execute_single_query();
+	    	return $this->result->num_rows;
 	    }
 
 	    public  function edit($user_data = array())
