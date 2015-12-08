@@ -4,7 +4,8 @@
 		array("url" => "/^\/$/", "controller" => "", "view" => "default"),
 		array("url" => "/^\/users\/new\/?$/", "controller" => "users", "view" => "new"),
 		array("url" => "/^\/users\/create\/?$/", "controller" => "users", "view" => "create"),
-		array("url" => "/^sessions\/new\/?$/","controller" => "sessions", "view" => "new")
+		array("url" => "/^\/sessions\/new\/?$/","controller" => "sessions", "view" => "new"),
+		array("url" => "/^\/sessions\/create\/?$/", "controller" => "sessions", "view" => "create"),
 	);
 
 	define("HOST", "localhost");
