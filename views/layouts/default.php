@@ -31,7 +31,7 @@
 				</div>
 				<div class="grilla_accion push_accion">
 					<a href="<?php echo APP_ROOT; ?>users/new" class="boton-buscar">Sing up</a>
-					<a href="" class="boton-buscar">Sing in</a>
+					<a href="<?php echo APP_ROOT; ?>sessions/new" class="boton-buscar">Sing in</a>
 				</div>
 			</div>
 		</div>
