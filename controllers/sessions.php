@@ -5,8 +5,6 @@
 	{
 		case 'create':
 				$user = new User();
-				//$respuesta = $user->login($params["user"]["username"], $params["user"]["password"]);
-				//var_dump($respuesta)."<br/>";
 				if ($user->login($params["user"]["username"], $params["user"]["password"])) 
 				{
 					save_msg_success("Te encuentras logueado");
