@@ -170,7 +170,7 @@
 	    	$this->get_results_from_query();
 	    	if (count($this->rows) == 1)
 	    	{
-	    		$_SESSION["user"] = $this->rows;
+	    		$_SESSION["user"] = $this->rows[0];
 	    		return true;
 	    	}
 	    	else
