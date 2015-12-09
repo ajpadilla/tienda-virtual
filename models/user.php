@@ -163,5 +163,20 @@
 	    	return $invalid_password;
 	    }
 
+	    public function login($username = '', $password = '')
+	    {
+	    	$this->query = "SELECT * FROM users 
+	    	WHERE users.username = '{$username}' AND users.password = '{$password}'";
+	    	$this->get_results_from_query();
+	    	if (count($this->rows) == 1)
+	    	{
+	    		$_SESSION["user"] = $this->rows;
+	    		return true;
+	    	}
+	    	else
+	    	{
+	    		return false;
+	    	}
+	    }
 	}
 ?>
