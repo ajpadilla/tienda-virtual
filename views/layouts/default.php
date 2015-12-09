@@ -38,9 +38,12 @@
 		<div id="contenedor-menu">
 			
 		</div>
-		<a id="logo" href="/">Logo</a>
+		<!--<a id="logo" href="/">Logo</a>-->
 	</div>
 	<div id="contenedor-principal">
+	<?php if (logged_in()): ?>
+		Hola <strong><?php echo current_user("username"); ?></strong>
+	<?php endif ?>
 	<?php if (isset($_SESSION["msg"]["success"])): ?>
 	<span class="msg-success"><?php echo $_SESSION["msg"]["success"]; ?></span>
 	<?php endif ?>
