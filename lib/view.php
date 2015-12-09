@@ -7,4 +7,28 @@
 		}
 		return "";
 	}
+
+	function logged_in()
+	{
+		if (isset($_SESSION["user"])) 
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	function current_user($field)
+	{
+		if($_SESSION["user"])
+		{
+			return $_SESSION["user"][$field];	
+		}
+		else
+		{
+			return "";
+		}
+	}
 ?>
